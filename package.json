@@ -1,0 +1,24 @@
+{
+  "name": "recovery-copilot",
+  "version": "0.1.0",
+  "description": "Recovery Copilot - AI Revenue Recovery agent for Razorpay failed payments (Buildathon MVP)",
+  "type": "commonjs",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "db:init": "node src/db/init.js",
+    "db:reset": "node -e \"const db = require('./src/db/connection'); db.exec('PRAGMA foreign_keys = OFF; DELETE FROM payment_links; DELETE FROM actions; DELETE FROM stopping_rule_log; DELETE FROM cases; DELETE FROM events; PRAGMA foreign_keys = ON;'); console.log('Database reset successfully!');\""
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "uuid": "^9.0.1"
+  }
+}

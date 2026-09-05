@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  /* Numbers should read like instrument-panel data everywhere, not just
+     where we remember to add a class. */
+  .font-mono,
+  [data-numeric] {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.01em;
+  }
+
+  ::selection {
+    background: rgba(56, 225, 198, 0.25);
+  }
+
+  /* Visible keyboard focus, respected everywhere — not just decorative. */
+  :focus-visible {
+    outline: 2px solid theme('colors.scan');
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-sweep,
+  .animate-blipPulse {
+    animation: none !important;
+  }
+}
